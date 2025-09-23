@@ -19,7 +19,7 @@ const FoodPartnerRegister = () => {
       const address = e.target.address.value;
 
       axios.post("http://localhost:4000/api/food-partner-register", {
-       name:businessName,
+       businessName,
        contactName,
        phone,
        email,

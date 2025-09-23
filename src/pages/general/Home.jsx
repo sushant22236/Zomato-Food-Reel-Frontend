@@ -11,9 +11,8 @@ const Home = () => {
         axios.get("http://localhost:4000/food/get-food", { withCredentials: true })
             .then(response => {
 
-                console.log(response.data);
-
-                setVideos(response.data.foodItems)
+                console.log("response.data in useeffect", response.data);
+                setVideos(response.data.foods)
             })
             .catch(() => { /* noop: optionally handle error */ })
     }, [])
@@ -43,12 +42,15 @@ const Home = () => {
     }
 
     return (
-        <ReelFeed
-            items={videos}
-            onLike={likeVideo}
-            onSave={saveVideo}
-            emptyMessage="No videos available."
-        />
+        <>
+            
+            <ReelFeed
+                items={videos}
+                onLike={likeVideo}
+                onSave={saveVideo}
+                emptyMessage="No videos available."
+            />
+        </>
     )
 }
 
